@@ -1,0 +1,19 @@
+{% extends ‘layout.html’ %}
+
+{% block title %}{{ contato.nome }}{% endblock %}
+
+{% block content %}
+    <h1>{{ contato.nome }}</h1>
+    <p>{{ contato.telefone }}</p>
+    <p>
+        <i>Criado em:
+        </i>
+        {{ contato.created_on.toDateString() }}</p>
+    <p>
+        <i>atualizado em:
+        </i>
+        {{ contato.updated_on.toDateString() }}</p>
+    <p>
+        <a href=”/”>Voltar para lista</a>
+    </p>
+{% endblock %}

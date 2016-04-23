@@ -1,0 +1,15 @@
+{% extends ‘layout.html’ %}
+
+{% block title %}Editar Contato{% endblock %}
+
+{% block content %}
+    <h1>Editar Contato</h1>
+    <p>Faça as alterações.</p>
+    <form action=”/contato/update” method=”post”>
+        <p><input type=”hidden” value=”{{ contato.id }} ” name=”id”></p>
+        <p><input type=”text” value=”{{ contato.nome }} ” name=”nome”></p>
+        <p><input type=”text” value=”{{ contato.telefone }} ” name=”telefone”></p>
+        <p><input type=”text” value=”{{ contato.operadora }} ” name=”operadora”></p>
+        <p><input type=”submit” value=”Atualizar”></p>
+    </form>
+{% endblock %}
