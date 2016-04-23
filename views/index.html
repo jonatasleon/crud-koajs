@@ -10,28 +10,32 @@
     <p>
         <a href="/contato/new">Inserir contato</a>
     </p>
-    <ul id="contatos">
-        {% for contato in contatos %}
-            <li>
-                <span>Nome:
-                </span>
-                <b>{{ contato.nome }}</b>
-                <span>Telefone:
-                </span>
-                <b>{{ contato.telefone}}</b>
-                <span>
-                    Operadora:
-                </span>
-                <b>
-                    {{ contato.operadora}}
-                </b>
-                ||
-                <a href="/contato/{{ contato.id }} ">Ver</a>
-                ||
-                <a href="/contato/edit/{{ contato.id }} ">Editar</a>
-                ||
-                <a href="/contato/delete/{{ contato.id }} ">Apagar</a>
-            </li>
-        {% endfor %}
-    </ul>
+    <table>
+        <thead>
+            <tr>
+                <td>Nome</td>
+                <td>Telefone</td>
+                <td>Operadora</td>
+                <td colspan="3"></td>
+            </tr>
+        </thead>
+        <tbody>
+            {% for contato in contatos %}
+            <tr>
+                <td>{{ contato.nome }}</td>
+                <td>{{ contato.telefone }}</td>
+                <td>{{ contato.operadora }}</td>
+                <td>
+                    <a href="/contato/{{ contato.id }}">Ver</a>
+                </td>
+                <td>
+                    <a href="/contato/edit/{{ contato.id }}">Editar</a>
+                </td>
+                <td>
+                    <a href="/contato/delete/{{ contato.id }}">Apagar</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
 {% endblock %}

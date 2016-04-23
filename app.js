@@ -5,7 +5,7 @@ var logger = require('koa-logger'),
     views = require('co-views'),
     parse = require('co-body'),
     koa = require('koa'),
-    Contato = require('./handleContatos.js').Contato,
+    Contato = require('./contatos.js').Contato,
     app = koa();
 
 // 3 — Criar os middlewares, o garçom que vai trabalhar entre a mesa e a cozinha
