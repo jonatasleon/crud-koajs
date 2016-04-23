@@ -5,10 +5,8 @@ var logger = require('koa-logger'),
     views = require('co-views'),
     parse = require('co-body'),
     koa = require('koa'),
+    Contato = require('./handleContatos.js').Contato,
     app = koa();
-
-// 2 — Criar as variáveis ou arrays de armazenamento de dados
-var contatos = [];
 
 // 3 — Criar os middlewares, o garçom que vai trabalhar entre a mesa e a cozinha
 app.use(logger());
@@ -29,7 +27,7 @@ var render = views(__dirname + '/views', { map: { html: 'swig' }});
 // 6.1 — Listar(list)
 function *list() {
     this.body = yield render('index', {
-        contatos: contatos
+        contatos: Contato.selectAll()
     });
 }
 
@@ -40,10 +38,9 @@ function *add() {
 
 // 6.3 — Editar(edit)
 function *edit(id) {
-    var contato = contatos[id];
-    if(!contato)
-        this.throw(404, 'id de contato inválido');
-
+    var contato = Contato.select(id);
+    console.log("Contato:");
+    console.log(contato);
     this.body = yield render('edit', {
         contato: contato
     });
@@ -51,47 +48,27 @@ function *edit(id) {
 
 // 6.4 — Mostrar(show)
 function *show(id) {
-    var contato = contatos[id];
-
-    if(!contato)
-        this.throw(404, 'id de contato inválido');
-
-    this.body = yield render('show', { contato: contato });
+    this.body = yield render('show', { contato: Contato.select(id) });
 }
 
 
 // 6.5 — Apagar(remove)
 function *remove(id) {
-    var contato = contatos[id];
-
-    if (!contato)
-        this.throw(404, 'invalid contato id');
-
-    contatos.splice(id, 1);
-    for (var i = 0; i < contatos.length; i++) {
-        contatos[i].id = i;
-    }
+    Contato.remove(id);
     this.redirect('/');
 }
 
 // 6.6 — Criar(create)
 function *create() {
     var contato = yield parse(this);
-    contato.created_on = new Date();
-    contato.updated_on = new Date();
-    var id = contatos.push(contato);
-    contato.id = id - 1;
+    Contato.insert(contato);
     this.redirect('/');
 }
 
 // 6.7 — Atualizar(update)
 function *update() {
     var contato = yield parse(this);
-    var index = contato.id.trim();
-    contatos[index].nome = contato.nome;
-    contatos[index].telefone = contato.telefone;
-    contatos[index].operadora = contato.operadora;
-    contatos[index].updated_on = new Date();
+    Contato.update(contato);
     this.redirect('/');
 }
 
