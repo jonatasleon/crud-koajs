@@ -1,14 +1,14 @@
-{% extends ‘layout.html’ %}
+{% extends 'layout.html' %}
 
 {% block title %}Cadastrar Contato{% endblock %}
 
 {% block content %}
     <h1>Adicionar Contato</h1>
     <p>Criar novo Contato</p>
-    <form action=”/contato/create” method=”post”>
-        <p><input type=”text” placeholder=”Nome” name=”nome”></p>
-        <p><input type=”text” placeholder=”Telefone” name=”telefone”></p>
-        <p><input type=”text” placeholder=”Operadora” name=”operadora”></p>
-        <p><input type=”submit” value=”Cadastrar”></p>
+    <form action="/contato/create" method="post">
+        <p><input type="text" placeholder="Nome" name="nome"></p>
+        <p><input type="text" placeholder="Telefone" name="telefone"></p>
+        <p><input type="text" placeholder="Operadora" name="operadora"></p>
+        <p><input type="submit" value="Cadastrar"></p>
     </form>
 {% endblock %}

@@ -23,7 +23,7 @@ app.use(route.post('/contato/create', create));
 app.use(route.post('/contato/update', update));
 
 // 5 — Vamos deixar a tela (VIEW) mais inteligente para conversar como o CONTROLLER e o modules
-var render = views(__dirname + '/views', { map: { html: 'swig' } });
+var render = views(__dirname + '/views', { map: { html: 'swig' }});
 
 // 6 — Vamos criar as funções para cada ação passada pela rota para o CRUD sendo elas
 // 6.1 — Listar(list)

@@ -1,20 +1,20 @@
 {
-    "name": "koa-crud",
-    "version": "1.0.0",
-    "description": "Pequeno CRUD com KOAJS",
-    "main": "index.js",
-    "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1"
-    },
-    "dependencies": {
-        "co-body": "0.0.1",
-        "co-views": "~0.1.0",
-        "jsonfile": "^2.2.3",
-        "koa": "~0.2.0",
-        "koa-logger": "~1.1.0",
-        "koa-route": "~1.0.2",
-        "swig": "~1.2.2"
-    },
-    "author": "Jonatas Leon",
-    "license": "MIT"
+  "name": "koa-crud",
+  "version": "1.0.0",
+  "description": "Pequeno CRUD com KOAJS",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "co-body": "0.0.1",
+    "co-views": "~0.1.0",
+    "jsonfile": "^2.2.3",
+    "koa": "~0.2.0",
+    "koa-logger": "~1.1.0",
+    "koa-route": "~1.0.2",
+    "swig": "~1.2.2"
+  },
+  "author": "Jonatas Leon",
+  "license": "MIT"
 }

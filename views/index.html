@@ -1,4 +1,4 @@
-{% extends ‘layout.html’ %}
+{% extends 'layout.html' %}
 
 {% block title %}Contatos{% endblock %}
 
@@ -8,9 +8,9 @@
         <strong>{{ contatos.length }}</strong>
         contatos em sua agenda!</p>
     <p>
-        <a href=”/contato/new”>Inserir contato</a>
+        <a href="/contato/new">Inserir contato</a>
     </p>
-    <ul id=”contatos”>
+    <ul id="contatos">
         {% for contato in contatos %}
             <li>
                 <span>Nome:
@@ -26,11 +26,11 @@
                     {{ contato.operadora}}
                 </b>
                 ||
-                <a href=”/contato/{{ contato.id }} ”>Ver</a>
+                <a href="/contato/{{ contato.id }} ">Ver</a>
                 ||
-                <a href=”/contato/edit/{{ contato.id }} ”>Editar</a>
+                <a href="/contato/edit/{{ contato.id }} ">Editar</a>
                 ||
-                <a href=”/contato/delete/{{ contato.id }} ”>Apagar</a>
+                <a href="/contato/delete/{{ contato.id }} ">Apagar</a>
             </li>
         {% endfor %}
     </ul>
