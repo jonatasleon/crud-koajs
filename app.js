@@ -85,9 +85,9 @@ function *create() {
 }
 
 // 6.7 — Atualizar(update)
-function *update(id) {
+function *update() {
     var contato = yield parse(this);
-    var index = contato.id;
+    var index = contato.id.trim();
     contatos[index].nome = contato.nome;
     contatos[index].telefone = contato.telefone;
     contatos[index].operadora = contato.operadora;
